@@ -4,7 +4,7 @@
   "description": "landing page for natours",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "compile:sass": "node-sass sass/main.scss css/styles.css"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,5 @@
   "homepage": "https://github.com/paulVer777/CSS#readme",
   "devDependencies": {
     "node-sass": "^4.9.2"
-  },
-  "dependencies": {
-    "live-server": "^1.2.0"
   }
 }
