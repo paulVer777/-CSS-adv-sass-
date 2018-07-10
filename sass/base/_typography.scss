@@ -32,3 +32,22 @@ body {
   padding: 3rem;
   /*wszystkie elementy które sa dziecmi body dziedzicza border-box*/
 }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  display: inline-block;
+  -webkit-background-clip: text; //it will cut background in order to fit the text
+  color: transparent; // kolor przezroczysty
+  transition: all .2s;
+  letter-spacing: .2rem;
+
+  &:hover {
+
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black,.2);
+  }
+
+}
