@@ -10,7 +10,7 @@
     /*relative zeby after odnosil sie do tego buttona nie do headera
     ktory tez ma relativa, odnosi sie do najblizszego*/
     position: relative;
-    font-size: 1.6rem;
+    font-size: $font-size-default;
 
   }
 
@@ -62,4 +62,30 @@
     /*button bedzie widoczny dopiero po odpaleniu animacji(backwards)*/
 
   }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: 1.4rem;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all .2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black,.15);
+    transform: translateY(-.2rem);
+  }
+  &:active {
+    box-shadow: 0 .5rem 1rem rgba($color-black,.15);
+    transform: translate(0);
+
+  }
+
 }
