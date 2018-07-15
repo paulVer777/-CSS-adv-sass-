@@ -38,7 +38,7 @@
   &:active {
     /*active, co sie stanie po kliknieciu*/
     transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    box-shadow: 0 .5rem 1rem rgba($color-primary, .2);
     /*x y blur color*/
   }
 
