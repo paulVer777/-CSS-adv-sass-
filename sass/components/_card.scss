@@ -3,20 +3,20 @@
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 50rem;
+  height: 52rem;
 
   &__side {
-    height: 50rem;
+    height: 52rem;
     transition: all .8s ease;
-    color: white;
     font-size: 2rem;
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     backface-visibility: hidden;
     border-radius: 3px;
-    box-shadow: .2rem 1rem 4rem rgba($color-black,.15);
+    overflow: hidden;
+    box-shadow: .2rem 1rem 4rem rgba($color-black, .15);
 
     &--front {
       background-color: $color-white;
@@ -25,8 +25,8 @@
     &--back {
       transform: rotateY(180deg);
 
-      &-1{
-        background-image: linear-gradient(to right bottom,$color-secondary-light,$color-secondary-dark);
+      &-1 {
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
 
       }
 
@@ -35,11 +35,68 @@
   }
 
   &:hover &__side--front { // kiedy najedziemy na card chcemy zeby card__side--front side mialo transform
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
 
   }
-  &:hover &__side--back{
+  &:hover &__side--back {
     transform: rotateY(0);
+
+  }
+  //Front side styling
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); //in order to work in all browsers
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+      url("../img/nat-5.jpg");
+    }
+
+  }
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $color-white;
+    position: absolute;
+    text-align: right;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone; //nadaje deklaracje wszystkim boxom ktore zostaly stworzone,w tym przypadku nadaje padding
+    &--1 {
+
+      background-image: linear-gradient(to right bottom,
+              rgba($color-secondary-light, .8),
+              rgba($color-secondary-dark, .8));
+    }
+
+  }
+  &__details {
+    padding: 3rem;
+    ul {
+      margin:0 auto;
+      list-style: none;
+      width: 80%;
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+
+
+        &:not(:last-child){
+        border-bottom: 1px solid $color-grey-light-2;
+
+      }
+      }
+    }
 
   }
 
