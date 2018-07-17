@@ -23,15 +23,46 @@
     //okresla jak content oplywa element.
     clip-path: circle(50% at 50% 50%); //makes a circle from an element
     transform: translateX(-3rem) skewX(12deg); //when element is floating the best way is to use transform instead of margins
+    position: relative;
   }
 
   &-img {
     height: 100%; // it will have height of 15 rem,100% of parent element in this case story-shape element.
+    transform:translateX(-4rem) scale(1.4);
+    backface-visibility: hidden; // it fixes the shape of element, broken after transormed it
+    transition: all .5s
+  }
+  &-text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+  }
+
+  //after hover text on img will be visible
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  &:hover &-img{
+
+    transform:translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
 
   }
-&-text{
-  transform: skewX(12deg);
-}
 
 
 }
