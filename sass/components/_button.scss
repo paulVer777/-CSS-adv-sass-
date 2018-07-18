@@ -1,5 +1,6 @@
 .btn {
 
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -11,6 +12,12 @@
     ktory tez ma relativa, odnosi sie do najblizszego*/
     position: relative;
     font-size: $font-size-default;
+
+
+    //change for the button
+    border: none;
+    cursor: pointer;
+
 
   }
 
@@ -47,9 +54,12 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus
+  {
     /*active, co sie stanie po kliknieciu*/
     transform: translateY(-1px);
+    outline: none;
     box-shadow: 0 .5rem 1rem rgba($color-primary, .2);
     /*x y blur color*/
   }
@@ -86,6 +96,8 @@
     border-bottom: 1px solid $color-primary;
     padding: 3px;
     transition: all .2s;
+
+
   }
 
   &:hover {
