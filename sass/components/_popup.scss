@@ -8,6 +8,22 @@
   height: 100vh;
   z-index: 50000000;
   width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+
+  &:target { //pseudo class will aplly to a element when the url changes to having target in it,
+    // po kliknieciu w pasku adresowym pojawia sie "popup" i style zostaja zaaplikowane (#popup)
+    opacity: 1;
+    visibility: visible;
+
+  }
+
+  &:target &__content {
+
+    transform: translate(-50%, -50% )scale(1);
+    opacity: 1;
+  }
 
   &__content {
 
@@ -17,6 +33,9 @@
     box-shadow: 0 2rem 4rem rgba($color-black, .2);
     display: table;
     overflow: hidden;
+    transform: translate(-50%, -50%) scale(.5); //popup will have scale effect when open
+    opacity: 0;
+    transition: all .5s .2s;
   }
 
   &__left-side {
@@ -40,16 +59,36 @@
     font-size: 1.4rem;
     margin-bottom: 2rem;
 
-    -moz-column-count:2 ;
+    -moz-column-count: 2;
     -moz-column-gap: 4rem;
     -moz-column-rule: 1px solid $color-grey-light-2; //code applied in order to work in mozilla
-
 
     column-count: 2; //it creates 2 columns out of this text
     column-gap: 4rem; //by default it has value of 1 em, that is font size of a current element (1.4em=14px)
     column-rule: 1px solid $color-grey-light-2; //line that separates columns
     //-webkit-hyphens: auto; //not working in chrome
     //hyphens: auto;
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 3rem;
+      line-height: 1; // element was moved to much down cause the size of line height, so we decreased it to 1
+
+      &:hover {
+        color: $color-primary-light;
+
+      }
+
+    }
   }
 
 }
