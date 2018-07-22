@@ -1,0 +1,55 @@
+
+.popup {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $color-black;
+  height: 100vh;
+  z-index: 50000000;
+  width: 100%;
+
+  &__content {
+
+    @include absolute-center;
+    width: 75%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    display: table;
+    overflow: hidden;
+  }
+
+  &__left-side {
+    width: 33.333333%;
+    display: table-cell;
+
+  }
+  &__right-side {
+    width: 66.666667%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+
+  }
+  &__img {
+    display: block;
+    width: 100%;
+
+  }
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+
+    -moz-column-count:2 ;
+    -moz-column-gap: 4rem;
+    -moz-column-rule: 1px solid $color-grey-light-2; //code applied in order to work in mozilla
+
+
+    column-count: 2; //it creates 2 columns out of this text
+    column-gap: 4rem; //by default it has value of 1 em, that is font size of a current element (1.4em=14px)
+    column-rule: 1px solid $color-grey-light-2; //line that separates columns
+    //-webkit-hyphens: auto; //not working in chrome
+    //hyphens: auto;
+  }
+
+}
