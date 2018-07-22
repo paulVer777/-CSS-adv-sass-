@@ -1,7 +1,6 @@
+@mixin clearfix {
 
-@mixin clearfix{
-
-  &::after{
+  &::after {
     content: "";
     display: table;
     clear: both;
@@ -9,10 +8,54 @@
   }
 }
 
-@mixin absolute-center{
+@mixin absolute-center {
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 3px;
 }
+
+////////MEDIA QUERY MANAGER /////////////////////
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+
+    @media (max-width: 37.5em) { //600px
+      @content
+    }
+  }
+
+  @if $breakpoint == tab-land { //1200px
+
+    @media (max-width: 75em) {   // we want 1 rem=9px so 9px/16 = 50%
+      @content
+    }
+  }
+
+
+  @if $breakpoint == tab-port { //900px
+
+    @media (max-width: 56.25em) {
+      @content
+    }
+  }
+
+
+
+  @if $breakpoint == big-desktop { //1800px
+
+    @media (min-width:112.5em) {
+      @content
+    }
+  }
+}
+
+
+
+
+
+
+
+
+  
