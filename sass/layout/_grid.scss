@@ -2,11 +2,23 @@
   max-width: $grid-width;
   margin:0 auto;
 
+  @include respond(tab-port){
+    max-width: 50rem !important;
+    padding: 0 3rem;
+  }
+
+
+
+
   @include clearfix;
 
   //zaznaczy wszystkie prócz ostatniego,everything except last child
   &:not(:last-child){
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port){
+      margin-bottom: $gutter-vertical-small !important;
+    }
 
   }
 
@@ -16,7 +28,21 @@
     &:not(:last-child){
       margin-right:$gutter-horizontal;
 
+      @include respond(tab-port){
+        margin-right: 0 !important;
+        margin-bottom: $gutter-vertical-small !important;
+      }
+
+
     }
+
+
+    @include respond(tab-port){
+      width: 100% !important;
+    }
+
+
+
   }
 
   .col-1-of-2{

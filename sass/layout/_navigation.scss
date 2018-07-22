@@ -50,6 +50,14 @@
     box-shadow: 0 1rem 3rem rgba($color-black, .2);
     text-align: center;
     cursor: pointer;
+
+    @include respond(tab-port) {
+
+      top: 3rem;
+      right: 3rem;
+
+    }
+
   }
 
   &__background {
@@ -62,6 +70,13 @@
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
     z-index: 1000;
     transition: transform .8s;
+
+    @include respond(tab-port) {
+
+      top: 3.25rem;
+      right: 3.25rem;
+
+    }
 
   }
 
@@ -136,30 +151,30 @@
 
   &__button:hover &__icon::before {
 
-    top:-1.3rem;
+    top: -1.3rem;
 
   }
 
-  &__button:hover &__icon::after{
+  &__button:hover &__icon::after {
 
-    top:1.3rem;
+    top: 1.3rem;
 
   }
 
-  &__checkbox:checked + &__button &__icon{
+  &__checkbox:checked + &__button &__icon {
     background-color: transparent;
-   //opacity causes disappearing of all elements, not only main span, but also before and after elements.
+    //opacity causes disappearing of all elements, not only main span, but also before and after elements.
   }
 
-  &__checkbox:checked + &__button &__icon::before{
+  &__checkbox:checked + &__button &__icon::before {
     transform: rotate(140deg);
-    top:-.05rem;
+    top: -.05rem;
 
   }
 
-  &__checkbox:checked + &__button &__icon::after{
+  &__checkbox:checked + &__button &__icon::after {
     transform: rotate(-140deg);
-    top:.05rem;
+    top: .05rem;
 
   }
 }
