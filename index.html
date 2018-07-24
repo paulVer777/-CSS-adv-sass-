@@ -83,9 +83,35 @@
             <div class="col-1-of-2">
 
                 <div class="composition">
-                    <img src="img/nat-1-large.jpg" alt="Photo1" class="composition__photo composition__photo--p1"/>
-                    <img src="img/nat-2-large.jpg" alt="Photo2" class="composition__photo composition__photo--p2"/>
-                    <img src="img/nat-3-large.jpg" alt="Photo3" class="composition__photo composition__photo--p3"/>
+                    <!--browser will automatically choose the best img base on actual screen resolution-->
+
+                    <img srcset="img/nat-1.jpg 300w,img/nat-1-large.jpg 1000w"
+                         sizes="(max-width:900px) 20vw, (max-width:600px) 20vw,250px"
+                         alt="photo1" class="composition__photo composition__photo--p1"
+                         src="img/nat-1-large.jpg"
+                    >
+
+                    <!--we are informing browser about width of images so browser will know width before download,
+                    (300w and 1000w), is sizes property we put the breakpoints with
+                     % value of occupied width by the imgs in that partticular resolution.
+                     if none of this breakpoints aplly then browser will use default which is 250px
+                    -->
+
+                    <img srcset="img/nat-2.jpg 300w,img/nat-2-large.jpg 1000w"
+                         sizes="(max-width:900px) 20vw, (max-width:600px) 20vw,250px"
+                         alt="photo2" class="composition__photo composition__photo--p2"
+                         src="img/nat-2-large.jpg"
+                    >
+
+                    <img srcset="img/nat-3.jpg 300w,img/nat-3-large.jpg 1000w"
+                         sizes="(max-width:900px) 20vw, (max-width:600px) 20vw,250px"
+                         alt="photo3" class="composition__photo composition__photo--p3"
+                         src="img/nat-3-large.jpg"
+                    >
+
+                    <!--<img src="img/nat-1-large.jpg" alt="Photo1" class="composition__photo composition__photo&#45;&#45;p1"/>-->
+                    <!--<img src="img/nat-2-large.jpg" alt="Photo2" class="composition__photo composition__photo&#45;&#45;p2"/>-->
+                    <!--<img src="img/nat-3-large.jpg" alt="Photo3" class="composition__photo composition__photo&#45;&#45;p3"/>-->
                 </div>
             </div>
         </div>
@@ -367,7 +393,23 @@
 
 <footer class="footer">
     <div class="footer__logo-box u-margin-bottom-medium">
-        <img src="../img/logo-green-2x.png" alt="logo" class="footer__logo">
+
+        <picture class="footer__logo">
+            <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                    media="(max-width:37.5em)">
+            <!--<source srcset="img/logo-white.png" media="(max-width:40.5em)">-->
+            <!--we can make as many sources as we want-->
+
+            <!--art direction: if width is less than 37.5em browser will use srcset written above-->
+
+            <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="full-logo" src="img/logo-green-2x.png">
+            <!--if width is greater than 37.5 em browser will use img above-->
+            <!--we also put the src attribute because old browser might not understand srcset-->
+        </picture>
+
+
+        <!--//browser automatically choose the best img depending on screen that user have.-->
+        <!--if its a low density screen browser will use 1x, if high density 2x-->
     </div>
     <div class="row">
         <div class="col-1-of-2">
@@ -405,7 +447,7 @@
         </div>
         <div class="popup__right-side">
 
-            <a href="#section-tours" class= "popup__close">&times;</a>
+            <a href="#section-tours" class="popup__close">&times;</a>
             <div class="u-margin-bottom-small">
                 <h2 class="heading-secondary">Start Booking now</h2>
             </div>

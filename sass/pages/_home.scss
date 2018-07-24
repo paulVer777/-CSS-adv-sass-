@@ -80,15 +80,49 @@
   url("../img/nat-10.jpg");
 
   background-size: 100%; // it does the same thing like cover, just stretches img to occupy the entire container where
-  //the background img is applied
-  height: 50rem;
+  //the background img is applied in x direction
   border-radius: 3px;
   box-shadow: 0 2rem 1rem rgba($color-black,.2);
+
+
+  @include respond(tab-land){
+
+
+    background-image: linear-gradient(105deg,
+            rgba($color-white,.9)0%, //white color starts from zero and ends at 50% of container
+            rgba($color-white,.9)70%,
+            transparent 70%), //the rest 50% of space will be transparent
+    url("../img/nat-10.jpg");
+    background-size: cover;
+
+  }
+
+  @include respond(tab-port){
+
+    background-image: linear-gradient(to right,
+            rgba($color-white,.9)0%, //white color starts from zero and ends at 50% of container
+            rgba($color-white,.9)100%),
+            //the rest 50% of space will be transparent
+    url("../img/nat-10.jpg");
+  }
 
 
   &__form{
     width: 50%;
     padding: 6rem;
+
+    @include respond(tab-land){
+
+   width: 70%;
+
+    }
+
+    @include respond(tab-port){
+
+      width: 100%;
+    }
+
+
   }
 
 }
