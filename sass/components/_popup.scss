@@ -4,13 +4,28 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: $color-black;
   height: 100vh;
   z-index: 50000000;
   width: 100%;
   opacity: 0;
   visibility: hidden;
   transition: all .3s;
+
+
+  //graceful degradation
+
+  //FEATURE QUERY, if browser support this properties it will apply them
+
+  @supports (-webkit-backdrop-filter: blur(10px))or(backdrop-filter: blur(10px)) {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: $color-black;
+
+}
+
+
+
+
 
   &:target { //pseudo class will aplly to a element when the url changes to having target in it,
     // po kliknieciu w pasku adresowym pojawia sie "popup" i style zostaja zaaplikowane (#popup)

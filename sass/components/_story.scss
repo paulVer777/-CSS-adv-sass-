@@ -28,13 +28,23 @@
   &-shape {
     width: 15rem;
     height: 15rem;
+    overflow: hidden;
     float: left;
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%); //zeby nadac ksztalt musi byc float, i musi miec dimensions,
     //okresla jak content oplywa element.
-    clip-path: circle(50% at 50% 50%); //makes a circle from an element
+     //makes a circle from an element
     transform: translateX(-3rem) skewX(12deg); //when element is floating the best way is to use transform instead of margins
     position: relative;
+    border-radius: 50%;
+
+    @supports (clip-path: polygon(0 0 )) { //only if its supported it gets apllied
+      clip-path: circle(50% at 50% 50%);
+      width: 15rem;
+      height: 15rem;
+      border-radius:0;
+}
+
 
     @include respond(phone){
       transform: translateX(-3rem) skewX(0);

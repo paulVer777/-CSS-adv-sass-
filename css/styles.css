@@ -343,13 +343,16 @@ body {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../../img/hero.jpg");
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
   text-align: center; }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 2), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(40, 180, 133, 0.8)), url("../../img/hero.jpg"); } }
   @media (max-width: 37.5em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
@@ -579,12 +582,19 @@ body {
   .story-shape {
     width: 15rem;
     height: 15rem;
+    overflow: hidden;
     float: left;
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
-    position: relative; }
+    position: relative;
+    border-radius: 50%; }
+    @supports (clip-path: polygon(0 0)) {
+      .story-shape {
+        clip-path: circle(50% at 50% 50%);
+        width: 15rem;
+        height: 15rem;
+        border-radius: 0; } }
     @media (max-width: 37.5em) {
       .story-shape {
         transform: translateX(-3rem) skewX(0); } }
@@ -882,13 +892,17 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(17, 17, 17, 0.83);
   height: 100vh;
   z-index: 50000000;
   width: 100%;
   opacity: 0;
   visibility: hidden;
   transition: all .3s; }
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    .popup {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(17, 17, 17, 0.83); } }
   .popup:target {
     opacity: 1;
     visibility: visible; }
